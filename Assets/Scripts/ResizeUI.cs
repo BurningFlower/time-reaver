@@ -17,6 +17,7 @@ public class ResizeUI : MonoBehaviour {
 
 	void ResizeText(Text t){
 		t.fontSize=(int) (t.fontSize*Screen.width/Ratio);
+
 	}
 	void ResizeButton(Button b){
 		Vector3 trans=b.transform.localScale;

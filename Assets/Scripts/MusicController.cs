@@ -8,19 +8,24 @@ using System.Collections;
 public class MusicController : MonoBehaviour {
 	public AudioClip[] Music;
 	private int current;
-
+	private float vol;
 	void Start () {
 		CheckAudio ();
 		audio.loop = false;
 		current = Random.Range ((int)0,(int)Music.Length);
 		audio.playOnAwake = false;
-		audio.Play ();
+		vol=audio.volume;
+		audio.volume=0F;
+		PlayNext ();
 	}
 
 	void Update () {
 		CheckAudio ();
 		if (!audio.isPlaying)
 						PlayNext ();
+		if(audio.volume<vol){
+			audio.volume+=0.1F*Time.deltaTime;
+		}
 	}
 
 	void PlayNext(){
@@ -30,6 +35,8 @@ public class MusicController : MonoBehaviour {
 	void NextSong(){
 		current++;
 		current%=Music.Length;
+		audio.clip = Music [current];
+		Debug.Log (current);
 		}
 	void CheckAudio(){
 		if (SavedData.ActiveMusic)
