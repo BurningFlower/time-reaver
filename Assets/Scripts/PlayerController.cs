@@ -73,6 +73,14 @@ public class PlayerController : MonoBehaviour {
             jmp=false;
             if(!jmp) anim.SetTrigger (Animator.StringToHash ("Fall"));
         }
+		else if(collider.gameObject.tag=="Enemy"){
+			if(!attacking) PlayerDies();
+			else collider.gameObject.SendMessage("EnemyDie");
+
+		}
+		else if(collider.gameObject.tag=="Spikes"){
+			PlayerDies();
+		}
     }
     void OnCollsionStay2D(Collision2D coll) {
         if(collider.gameObject.tag=="Floor") { //this shouldn't be necessary
@@ -153,8 +161,9 @@ public class PlayerController : MonoBehaviour {
         }
         return selection;
     }
+	void PlayerDies(){
 
-    public bool IsAttacking() {
-        return attacking;
-    }
+
+
+	}
 }
