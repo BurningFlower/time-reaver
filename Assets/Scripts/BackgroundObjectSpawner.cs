@@ -4,6 +4,8 @@ using System.Collections;
 public class BackgroundObjectSpawner : MonoBehaviour {
 
 	public GameObject [] obj;
+	public float timeSpawn1=2f;
+	public float timeSpawn2=3f;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +20,7 @@ public class BackgroundObjectSpawner : MonoBehaviour {
 	void Spawn(){
 
 		Instantiate (obj [Random.Range (0, obj.Length)], transform.position, Quaternion.identity);
-		Invoke ("Spawn", Random.Range (2f, 3f));
+		Invoke ("Spawn", Random.Range (timeSpawn1, timeSpawn2));
 	}
 
 }

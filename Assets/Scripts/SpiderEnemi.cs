@@ -2,16 +2,19 @@
 using System.Collections;
 
 public class NewBehaviourScript : MonoBehaviour {
-	
+
+	public float limitInfA=1f;
+	public float limitSupA=3f;
+
 	public float A;
-	public float y=0f;
-	public float x=0;
+	private float y=0f;
+	private float x=0;
 	
 	//y = amplitud * sin((x*valor+grado_inicio)%360)+inicio;
 	// Use this for initialization
 	void Start () {
 		
-		A = Random.Range (1f, 3f);
+		A = Random.Range (limitInfA, limitSupA);
 		
 	}
 	
