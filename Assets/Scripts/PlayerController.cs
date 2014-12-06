@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour {
     }
     void OnCollisionEnter2D(Collision2D collider) {
         if(collider.gameObject.tag=="Floor") {
+			Debug.Log ("Grounded");
             grounded=true;
             attacked=false;
             jmp=false;
@@ -91,6 +92,8 @@ public class PlayerController : MonoBehaviour {
     //CONTROLLERS
     //makes lbutton and rbutton true when necessary
     void MobileController() {
+		jumpButton=false;
+		attackButton=false;
         foreach(Touch touch in Input.touches) {
             if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
                 if(touch.position.x<b1) jumpButton=true;
@@ -99,6 +102,8 @@ public class PlayerController : MonoBehaviour {
         }
     }
     void ComputerController() {
+		jumpButton=false;
+		attackButton=false;
         if(Input.GetButton ("Jump")) jumpButton=true;
         if(Input.GetButtonDown ("Fire1")) attackButton=true;
     }

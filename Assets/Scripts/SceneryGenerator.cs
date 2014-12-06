@@ -32,7 +32,7 @@ public class SceneryGenerator : MonoBehaviour {
 	//instantiates new object and refresh lastSpawn and nextObjectDistance
 	void Spawn(){
 		if(Random.value<spikerPercentage/100){ //chance of setting a spike
-				lastSpawn=Instantiate (spikePlatform[Random.Range ((int)0,(int)spikePlatform.Length)],transform.position,Quaternion.identity) as Transform;		
+				lastSpawn=Instantiate (spikePlatform[Random.Range ((int)0,(int)spikePlatform.Length-1)],transform.position,Quaternion.identity) as Transform;		
 		}
 
 		else{ //platform without spikes
