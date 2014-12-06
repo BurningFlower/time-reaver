@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class bgObjectSpawn : MonoBehaviour {
+public class BackgroundObjectSpawner : MonoBehaviour {
 
 	public GameObject [] obj;
 
