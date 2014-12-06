@@ -1,0 +1,8 @@
+-Da la vuelta a la pantalla
+-Disminuye un 50% la gravedad
+-¿Cambia la posición de los botones (der e izq)?
+-Crea varios objetos de puntos (es bueno)
+-Cambia la camara de forma que el tio se mueve hacia la izquierda
+-Mueves el personaje de forma que al tocar se eleva y si no baja
+"Una vez me maté a mi mismo en el pasado, fue divertido."
+"Si robas el futuro el presente será un rico bombón sin relleno."
