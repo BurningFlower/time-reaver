@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class SpiderEnemy : MonoBehaviour {
 
 	public float limitInfA=1f;
 	public float limitSupA=3f;
