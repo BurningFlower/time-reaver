@@ -32,13 +32,13 @@ public class SceneryGenerator : MonoBehaviour {
 	//instantiates new object and refresh lastSpawn and nextObjectDistance
 	void Spawn(){
 		if(Random.value<spikerPercentage/100){ //chance of setting a spike
-				Instantiate (spikePlatform[Random.Range (0,spikePlatform.Length)],transform.position,Quaternion.identity);		
+				lastSpawn=Instantiate (spikePlatform[Random.Range (0,spikePlatform.Length)],transform.position,Quaternion.identity) as Transform;		
 		}
 
 		else{ //platform without spikes
-			GameObject spawned=Instantiate (platform,transform.position,Quaternion.identity) as GameObject;
+			lastSpawn=Instantiate (platform,transform.position,Quaternion.identity) as Transform;
 			Vector2 size= new Vector2(Random.Range (minSize.x,maxSize.x),Random.Range (minSize.y,maxSize.y));
-			spawned.transform.localScale=new Vector3(size.x,size.y,spawned.transform.localScale.z);
+			lastSpawn.localScale=new Vector3(size.x,size.y,lastSpawn.localScale.z);
 		}
 
 	}
