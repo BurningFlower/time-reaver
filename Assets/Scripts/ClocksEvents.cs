@@ -20,7 +20,7 @@ public class ClocksEvents : MonoBehaviour {
 	}
 
 	void NotMoreBackgroundObjects(){
-		BackgroundObjectSpawner.layer = 20;
+		BackgroundObjectSpawner.SetLayer(20);
 
 	}
 
