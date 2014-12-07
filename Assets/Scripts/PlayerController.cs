@@ -28,12 +28,11 @@ public class PlayerController : MonoBehaviour {
     private bool jumpButton; //true while pushed
     private bool attackButton;  //true when pushed (false after frame)
 
-	private CameraController camCont;
+//	private CameraController camCont;
     void Awake() {
 		anim=gameObject.GetComponentInChildren<Animator>();
         attacking=false;
 		attacked=false;
-        grounded=false;
         jmp=false;
         jumpButton=false;
         attackButton=false;
@@ -46,26 +45,30 @@ public class PlayerController : MonoBehaviour {
         b2=0;
     }
     void Start () {
+		SetGrounded(false);
         b1=(Screen.width-buttonOffset)/2;
         b2=(Screen.width+buttonOffset)/2;
         controllerSelection=SelectController(); //selects controller from platform
-		camCont=mainCamera.GetComponent<CameraController>();
+		//camCont=mainCamera.GetComponent<CameraController>();
     }
     void Update () {
         if(controllerSelection==ControllerType.Mobile) MobileController();
         else ComputerController();
+
     }
     void FixedUpdate() {
 		if(jumpButton) Jump ();
 		if(attackButton) Attack ();
 
+		if(attacking) rigidbody2D.velocity=new Vector2(0,0);
+
     }
     void OnCollisionEnter2D(Collision2D collider) {
         if(collider.gameObject.tag=="Floor") {
-            grounded=true;
+			SetGrounded (true);
             attacked=false;
             jmp=false;
-            anim.SetTrigger (Animator.StringToHash ("TouchGround"));
+  //          anim.SetTrigger (Animator.StringToHash ("TouchGround"));
 			//camCont.SetNormalCamera();
         }
 		else if(collider.gameObject.tag=="Enemy"){
@@ -79,15 +82,15 @@ public class PlayerController : MonoBehaviour {
     }
     void OnCollisionExit2D(Collision2D collider) {
         if(collider.gameObject.tag=="Floor") {
-            grounded=false;
-			anim.ResetTrigger (Animator.StringToHash ("TouchGround"));
+			SetGrounded (false);
+	//		anim.ResetTrigger (Animator.StringToHash ("TouchGround"));
             if(!jmp) anim.SetTrigger (Animator.StringToHash ("Falling"));
         }
 
     }
-    void OnCollsionStay2D(Collision2D coll) {
-        if(collider.gameObject.tag=="Floor") { //this shouldn't be necessary
-            grounded=true;
+    void OnCollisionStay2D(Collision2D collider) {
+        if(collider.gameObject.tag=="Floor") {
+			SetGrounded (true);
             attacked=false;
         }
     }
@@ -95,7 +98,7 @@ public class PlayerController : MonoBehaviour {
     //makes lbutton and rbutton true when necessary
     void MobileController() {
 		jumpButton=false;
-		attackButton=false;
+		//attackButton=false;
         foreach(Touch touch in Input.touches) {
             if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
                 if(touch.position.x<b1) jumpButton=true;
@@ -105,7 +108,7 @@ public class PlayerController : MonoBehaviour {
     }
     void ComputerController() {
 		jumpButton=false;
-		attackButton=false;
+		//attackButton=false;
         if(Input.GetButton ("Jump")) jumpButton=true;
         if(Input.GetButtonDown ("Fire1")) attackButton=true;
     }
@@ -117,18 +120,17 @@ public class PlayerController : MonoBehaviour {
             anim.SetTrigger (Animator.StringToHash ("Jump"));
 			Invoke ("AddJumpForce",0.3F);
 
-            grounded=false; //Maybe neccessary?
+			SetGrounded (false);
         }
     }
     void Attack() {
-        if(!attacked && Time.time>attackTimer) {
+		attackButton=false;
+        if(!attacked && Time.time>attackTimer && !attacking) {
             attacked=true;
             attacking=true;
-         //   anim.SetTrigger (Animator.StringToHash ("Attack"));
+            anim.SetTrigger (Animator.StringToHash ("Attack"));
             attackTimer=Time.time+attackWaitTime;
-            attackButton=false;
-
-
+			Invoke ("FinishAttack",0.7F);
         }
     }
     void AttackEnd() {
@@ -174,9 +176,18 @@ public class PlayerController : MonoBehaviour {
 
 	}
 	void AddJumpForce(){
-		CancelInvoke ();
+		//CancelInvoke ();
+		if(!jmp){
 		jmp=true;
 	//	camCont.SetJumpCamera();
 		rigidbody2D.AddForce (new Vector2 (0, jumpForce), ForceMode2D.Impulse);
+		}
+	}
+	void SetGrounded(bool g){
+		grounded=g;
+		anim.SetBool ("Grounded",g);
+	}
+	void FinishAttack(){
+		attacking=false;
 	}
 }
