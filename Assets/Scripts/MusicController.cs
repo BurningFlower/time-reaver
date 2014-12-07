@@ -12,7 +12,7 @@ public class MusicController : MonoBehaviour {
 	void Start () {
 		CheckAudio ();
 		audio.loop = false;
-		current = Random.Range ((int)0,(int)Music.Length);
+		current = Random.Range ((int)0,(int)Music.Length-1);
 		audio.playOnAwake = false;
 		vol=audio.volume;
 		audio.volume=0F;

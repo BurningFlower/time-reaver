@@ -11,17 +11,19 @@ public class PlatformGenerator : MonoBehaviour {
 	public GameObject enemyPlatform;
 	public float spikerPercentage=40;
 	public float enemyPercentage=20;
-	public Vector2 minSize=new Vector2(0.5F,0.3F);
-	public Vector2 maxSize=new Vector2(2F,0.6F);
+	public Vector2 minSize=new Vector2(6F,1F);
+	public Vector2 maxSize=new Vector2(8F,1F);
 	
-	public Vector2 minSpawnRange=new Vector2(0.5F,-4F);
-	public Vector2 maxSpawnRange=new Vector2(2F,4F);
-	public float minJumpSpace=0.5F;
-	
+	public Vector2 minSpawnRange=new Vector2(7F,1F);
+	public Vector2 maxSpawnRange=new Vector2(9F,3.5F);
+
+	public float rangeY=6F;
+	public GameObject firstPlatform;
 	private GameObject lastSpawn; //last object spawned
 	private Vector2 nextObjectDistance;
 	// Use this for initialization
 	void Start () {
+		lastSpawn=firstPlatform;
 		GetNewDistance ();
 		Spawn();
 	}
@@ -38,9 +40,9 @@ public class PlatformGenerator : MonoBehaviour {
 	//instantiates new object and refresh lastSpawn and nextObjectDistance
 	void Spawn(){
 		float rand=Random.value*100;
-		Vector2 pos=transform.position;
+		Vector2 pos=lastSpawn.transform.position;
 		pos.y+=nextObjectDistance.y;
-		//if(Mathf.Abs(nextObjectDistance.y)>minJumpSpace)	pos.y+=nextObjectDistance.y;
+		pos.x=transform.position.x;
 		
 		if(rand<enemyPercentage){
 			lastSpawn=Instantiate (enemyPlatform,pos,Quaternion.identity) as GameObject;	
@@ -53,11 +55,15 @@ public class PlatformGenerator : MonoBehaviour {
 			lastSpawn=Instantiate (platform,pos,Quaternion.identity) as GameObject;
 			Vector2 size= new Vector2(Random.Range (minSize.x,maxSize.x),Random.Range (minSize.y,maxSize.y));
 			lastSpawn.transform.localScale=new Vector3(size.x,size.y,lastSpawn.transform.localScale.z);
-			GetNewDistance();
 		}
 		lastSpawn.transform.parent=transform;
+		GetNewDistance();
 	}
 	void GetNewDistance(){
-		nextObjectDistance=new Vector2(Random.Range (minSpawnRange.x,maxSpawnRange.x),Random.Range (minSpawnRange.y,maxSpawnRange.y));
+		float x=Random.Range (minSpawnRange.x,maxSpawnRange.x);
+		float y=Random.Range (minSpawnRange.y,maxSpawnRange.y);
+		if(Random.value<0.5) y=-y;
+		y=Mathf.Clamp (y,transform.position.y-rangeY,transform.position.y+rangeY);
+		nextObjectDistance=new Vector2(x,y);
 	}
 }
