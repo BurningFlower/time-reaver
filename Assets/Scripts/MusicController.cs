@@ -36,7 +36,6 @@ public class MusicController : MonoBehaviour {
 		current++;
 		current%=Music.Length;
 		audio.clip = Music [current];
-		Debug.Log (current);
 		}
 	void CheckAudio(){
 		if (SavedData.ActiveMusic)
