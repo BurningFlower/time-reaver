@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour {
     void Attack() {
 		attackButton=false;
         if(!attacked && Time.time>attackTimer && !attacking) {
+			audio.Play();
             attacked=true;
             attacking=true;
             anim.SetTrigger (Animator.StringToHash ("Attack"));

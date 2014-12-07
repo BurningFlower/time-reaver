@@ -7,6 +7,7 @@ using System.Collections;
 
 public class MusicController : MonoBehaviour {
 	public AudioClip[] Music;
+	public float FadeInSpeed=0.1F;
 	private int current;
 	private float vol;
 	void Start () {
@@ -24,7 +25,7 @@ public class MusicController : MonoBehaviour {
 		if (!audio.isPlaying)
 						PlayNext ();
 		if(audio.volume<vol){
-			audio.volume+=0.1F*Time.deltaTime;
+			audio.volume+=FadeInSpeed*Time.deltaTime;
 		}
 	}
 
