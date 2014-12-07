@@ -12,7 +12,7 @@ public class Movimiento : MonoBehaviour {
     private bool raising;
     // Use this for initialization
     void Start () {
-		rigidbody2D.gameObject.layer = BackgroundObjectSpawner.layer;
+		rigidbody2D.gameObject.layer = BackgroundObjectSpawner.GetLayer();
 		strenght=Random.Range (strenghtLimitA,strenghtLimitB);
 
         if (strenght > 0f)

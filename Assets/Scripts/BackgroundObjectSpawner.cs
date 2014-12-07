@@ -26,7 +26,11 @@ public class BackgroundObjectSpawner : MonoBehaviour {
 	}
 
 	public static void SetLayer(int layerValue){
-		layerValue=layerValue;
+		layer=layerValue;
+	}
+
+	public static int GetLayer(){
+		return layer;
 	}
 
 }
