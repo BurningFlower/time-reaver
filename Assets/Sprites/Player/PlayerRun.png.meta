@@ -1,11 +1,24 @@
 fileFormatVersion: 2
 guid: 52afba1643c78fd41ada696ebc4680d9
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: PlayerRun_0
+    21300002: PlayerRun_1
+    21300004: PlayerRun_2
+    21300006: PlayerRun_3
+    21300008: PlayerRun_4
+    21300010: PlayerRun_5
+    21300012: PlayerRun_6
+    21300014: PlayerRun_7
+    21300016: PlayerRun_8
+    21300018: PlayerRun_9
+    21300020: PlayerRun_10
+    21300022: PlayerRun_11
+    21300024: PlayerRun_12
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -24,14 +37,14 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 2
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +55,136 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: PlayerRun_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 254
+        width: 240
+        height: 173
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_1
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 253
+        width: 229
+        height: 172
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_2
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 253
+        width: 267
+        height: 166
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_3
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 253
+        width: 256
+        height: 172
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_4
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 253
+        width: 252
+        height: 171
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_5
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 255
+        width: 233
+        height: 163
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_6
+      rect:
+        serializedVersion: 2
+        x: 1777
+        y: 253
+        width: 256
+        height: 158
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_7
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 71
+        width: 248
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_8
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 72
+        width: 258
+        height: 152
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_9
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 71
+        width: 248
+        height: 153
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_10
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 72
+        width: 279
+        height: 161
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_11
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 71
+        width: 261
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerRun_12
+      rect:
+        serializedVersion: 2
+        x: 1477
+        y: 71
+        width: 268
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

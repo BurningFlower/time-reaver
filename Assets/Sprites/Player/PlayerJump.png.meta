@@ -1,11 +1,21 @@
 fileFormatVersion: 2
 guid: ccad2fe5a08a0cc4da8c33a2507eb5d6
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: PlayerJump_0
+    21300002: PlayerJump_1
+    21300004: PlayerJump_2
+    21300006: PlayerJump_3
+    21300008: PlayerJump_4
+    21300010: PlayerJump_5
+    21300012: PlayerJump_6
+    21300014: PlayerJump_7
+    21300016: PlayerJump_8
+    21300018: PlayerJump_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -24,14 +34,14 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 2
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +52,106 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: PlayerJump_0
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 255
+        width: 297
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerJump_1
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 255
+        width: 281
+        height: 186
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerJump_2
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 256
+        width: 287
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerJump_3
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 257
+        width: 294
+        height: 183
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerJump_4
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 252
+        width: 294
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerJump_5
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 71
+        width: 290
+        height: 183
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerJump_6
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 71
+        width: 290
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerJump_7
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 74
+        width: 292
+        height: 184
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerJump_8
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 72
+        width: 289
+        height: 180
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerJump_9
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 72
+        width: 291
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

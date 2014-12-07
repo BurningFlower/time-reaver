@@ -3,15 +3,13 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 	public Transform player;
-	public float minSize;
-	public float jumpSize;
-	public float changeSizeTime;
-	public float cameraSpeed;
+	public float minSize=6F;
+	public float jumpSize=10F;
+	public float changeSizeTime=2F;
+	public float minPosition=-10F;
 
 	private Camera mainCamera;
-	private float moveTime;
 	private float sizeTime;
-	
 	private bool bigSize;
 
 	// Use this for initialization
@@ -38,7 +36,9 @@ public class CameraController : MonoBehaviour {
 		mainCamera.orthographicSize=Mathf.Lerp (minSize,jumpSize,(sizeTime - Time.time) / changeSizeTime);
 		}
 	void RefreshPosition(){
-		transform.position = new Vector3 (transform.position.x, player.position.y, -10);
+		float pos=player.position.y;
+		if(pos<minPosition) pos=minPosition;
+		transform.position = new Vector3 (transform.position.x, pos, -10);
 	}
 	public void SetJumpCamera(){
 		bigSize = true;

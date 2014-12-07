@@ -7,13 +7,12 @@ using System.Collections;
 
 
 public class PlayerController : MonoBehaviour {
-    public float speed=1F;
     public float jumpForce=1F;
     public int buttonOffset=20; //spcae beetween buttons (in pixels)
     public float attackWaitTime=2F;
 
     private bool attacking;
-
+	public GameObject mainCamera;
 
     private enum ControllerType {Mobile,Computer};
     private ControllerType controllerSelection; //kind of controller
@@ -28,15 +27,16 @@ public class PlayerController : MonoBehaviour {
 
     private bool jumpButton; //true while pushed
     private bool attackButton;  //true when pushed (false after frame)
+
+	private CameraController camCont;
     void Awake() {
-		anim=gameObject.GetComponent<Animator>();
+		anim=gameObject.GetComponentInChildren<Animator>();
         attacking=false;
 		attacked=false;
         grounded=false;
         jmp=false;
         jumpButton=false;
         attackButton=false;
-        speed=Mathf.Abs(speed);
         jumpForce=Mathf.Abs (jumpForce);
         buttonOffset=Mathf.Abs (buttonOffset);
         attackWaitTime=Mathf.Abs (attackWaitTime);
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour {
         b1=(Screen.width-buttonOffset)/2;
         b2=(Screen.width+buttonOffset)/2;
         controllerSelection=SelectController(); //selects controller from platform
+		camCont=mainCamera.GetComponent<CameraController>();
     }
     void Update () {
         if(controllerSelection==ControllerType.Mobile) MobileController();
@@ -61,27 +62,28 @@ public class PlayerController : MonoBehaviour {
     }
     void OnCollisionEnter2D(Collision2D collider) {
         if(collider.gameObject.tag=="Floor") {
-			Debug.Log ("Grounded");
             grounded=true;
             attacked=false;
             jmp=false;
-            anim.SetTrigger (Animator.StringToHash ("Run"));
-        }
-    }
-    void OnCollisionExit2D(Collision2D collider) {
-        if(collider.gameObject.tag=="Floor") {
-            grounded=false;
-            jmp=false;
-            if(!jmp) anim.SetTrigger (Animator.StringToHash ("Fall"));
+            anim.SetTrigger (Animator.StringToHash ("TouchGround"));
+			//camCont.SetNormalCamera();
         }
 		else if(collider.gameObject.tag=="Enemy"){
 			if(!attacking) PlayerDies();
 			else collider.gameObject.SendMessage("EnemyDie");
-
+			
 		}
 		else if(collider.gameObject.tag=="Spikes"){
 			PlayerDies();
 		}
+    }
+    void OnCollisionExit2D(Collision2D collider) {
+        if(collider.gameObject.tag=="Floor") {
+            grounded=false;
+			anim.ResetTrigger (Animator.StringToHash ("TouchGround"));
+            if(!jmp) anim.SetTrigger (Animator.StringToHash ("Falling"));
+        }
+
     }
     void OnCollsionStay2D(Collision2D coll) {
         if(collider.gameObject.tag=="Floor") { //this shouldn't be necessary
@@ -110,19 +112,19 @@ public class PlayerController : MonoBehaviour {
 
     //PLAYER ACTIONS
     //jump with given force (if grounded==true)
-    void Jump() {
+   void Jump() {
         if(grounded) {
-            rigidbody2D.AddForce (new Vector2 (0, jumpForce), ForceMode2D.Impulse);
             anim.SetTrigger (Animator.StringToHash ("Jump"));
-            jmp=true;
-            //grounded=false; //Maybe neccessary?
+			Invoke ("AddJumpForce",0.3F);
+
+            grounded=false; //Maybe neccessary?
         }
     }
     void Attack() {
         if(!attacked && Time.time>attackTimer) {
             attacked=true;
             attacking=true;
-            anim.SetTrigger (Animator.StringToHash ("Attack"));
+         //   anim.SetTrigger (Animator.StringToHash ("Attack"));
             attackTimer=Time.time+attackWaitTime;
             attackButton=false;
 
@@ -131,7 +133,7 @@ public class PlayerController : MonoBehaviour {
     }
     void AttackEnd() {
         attacking=false;
-        if(!grounded) anim.SetTrigger (Animator.StringToHash ("Fall"));
+        if(!grounded) anim.SetTrigger (Animator.StringToHash ("Falling"));
         else anim.SetTrigger (Animator.StringToHash ("Run"));
     }
 
@@ -167,8 +169,14 @@ public class PlayerController : MonoBehaviour {
         return selection;
     }
 	void PlayerDies(){
+		Debug.Log ("GameOver");
 
 
-
+	}
+	void AddJumpForce(){
+		CancelInvoke ();
+		jmp=true;
+	//	camCont.SetJumpCamera();
+		rigidbody2D.AddForce (new Vector2 (0, jumpForce), ForceMode2D.Impulse);
 	}
 }

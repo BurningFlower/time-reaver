@@ -2,19 +2,19 @@
 using System.Collections;
 
 public class TimeAgent : MonoBehaviour {
-	public float shootDelay;
-	public GameObject shoot;
+	//public float shootDelay;
+	//public GameObject shoot;
 	// Use this for initialization
 	void Start () {
-		Invoke ("Shoot",shootDelay);
+	//	Invoke ("Shoot",shootDelay);
 	}
 	
 	// Update is called once per frame
 	void EnemyDie(){
-		CancelInvoke();
+	//	CancelInvoke();
 		Destroy (gameObject);
 	}
-	void Shoot(){
+/*	void Shoot(){
 		Instantiate (shoot,transform.position,Quaternion.identity);
-	}
+	}*/
 }

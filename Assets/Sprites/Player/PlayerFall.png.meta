@@ -1,11 +1,24 @@
 fileFormatVersion: 2
 guid: 58d74524f3ea641468fe08bcf30f43cf
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: PlayerFall_0
+    21300002: PlayerFall_1
+    21300004: PlayerFall_2
+    21300006: PlayerFall_3
+    21300008: PlayerFall_4
+    21300010: PlayerFall_5
+    21300012: PlayerFall_6
+    21300014: PlayerFall_7
+    21300016: PlayerFall_8
+    21300018: PlayerFall_9
+    21300020: PlayerFall_10
+    21300022: PlayerFall_11
+    21300024: PlayerFall_12
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -24,14 +37,14 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 2
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +55,136 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: PlayerFall_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 252
+        width: 288
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_1
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 248
+        width: 291
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_2
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 245
+        width: 285
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_3
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 253
+        width: 297
+        height: 186
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_4
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 251
+        width: 286
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_5
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 253
+        width: 295
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_6
+      rect:
+        serializedVersion: 2
+        x: 1762
+        y: 255
+        width: 286
+        height: 186
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69
+        width: 296
+        height: 184
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_8
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 69
+        width: 283
+        height: 181
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_9
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 67
+        width: 292
+        height: 175
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_10
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 70
+        width: 291
+        height: 180
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_11
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 67
+        width: 292
+        height: 184
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerFall_12
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 69
+        width: 291
+        height: 183
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
