@@ -36,10 +36,12 @@ public class CameraController : MonoBehaviour {
 		mainCamera.orthographicSize=Mathf.Lerp (minSize,jumpSize,(sizeTime - Time.time) / changeSizeTime);
 		}
 	void RefreshPosition(){
+		if(player){
 		float pos=player.position.y;
 		if(pos<minPosition) pos=minPosition;
 		transform.position = new Vector3 (transform.position.x, pos, -10);
-	}
+		}
+		}
 	public void SetJumpCamera(){
 		bigSize = true;
 		sizeTime = Time.time + changeSizeTime;
