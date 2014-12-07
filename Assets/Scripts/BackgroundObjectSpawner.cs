@@ -6,9 +6,11 @@ public class BackgroundObjectSpawner : MonoBehaviour {
 	public GameObject [] obj;
 	public float timeSpawn1=2f;
 	public float timeSpawn2=3f;
+	public static int layer;
 
 	// Use this for initialization
 	void Start () {
+		layer = -5;
 		Spawn ();
 	}
 	
