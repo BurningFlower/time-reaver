@@ -7,7 +7,7 @@ public class SpiderEnemy : MonoBehaviour {
 	public float limitSupA=3f;
 
 	public float A;
-	private float y=0f;
+	private float y;
 	private float x=0;
 	
 	//y = amplitud * sin((x*valor+grado_inicio)%360)+inicio;
@@ -15,11 +15,12 @@ public class SpiderEnemy : MonoBehaviour {
 	void Start () {
 		
 		A = Random.Range (limitInfA, limitSupA);
+		y = rigidbody2D.transform.position.y;
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
 		y = A * Mathf.Sin ((20 + x)%360);
 		rigidbody2D.MovePosition (new Vector2 (0, y));

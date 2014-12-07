@@ -4,6 +4,8 @@ using System.Collections;
 public class Movimiento : MonoBehaviour {
 
     private float strenght;
+	public float strenghtLimitA = -3.5f;
+	public float strenghtLimitB = 3.5f;
     private float speedRotation;
     private float rotation=0f;
     private float maxLimit, minLimit;
@@ -11,7 +13,7 @@ public class Movimiento : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        strenght=Random.Range (-3.5f,3.5f);
+		strenght=Random.Range (strenghtLimitA,strenghtLimitB);
 
         if (strenght > 0f)
             raising = true;
