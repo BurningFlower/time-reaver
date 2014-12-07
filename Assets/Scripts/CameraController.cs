@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
-	public GameObject player;
+	public Transform player;
 	public float minSize;
 	public float jumpSize;
 	public float changeSizeTime;
@@ -38,11 +38,7 @@ public class CameraController : MonoBehaviour {
 		mainCamera.orthographicSize=Mathf.Lerp (minSize,jumpSize,(sizeTime - Time.time) / changeSizeTime);
 		}
 	void RefreshPosition(){
-		if (player.transform.position.y > transform.position.y)
-						transform.Translate (Vector3.up * Time.deltaTime * cameraSpeed);
-		else if(player.transform.position.y < transform.position.y)
-				transform.Translate (Vector3.down * Time.deltaTime * cameraSpeed);
-	//	transform.position = new Vector3 (transform.position.x, player.transform.position.y, -10);
+		transform.position = new Vector3 (transform.position.x, player.position.y, -10);
 	}
 	public void SetJumpCamera(){
 		bigSize = true;
