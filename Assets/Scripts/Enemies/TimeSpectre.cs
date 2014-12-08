@@ -3,6 +3,9 @@ using System.Collections;
 
 public class TimeSpectre : MonoBehaviour {
 
+	public ScoreHandler scoreHandler;
+	public int points;
+	//public int 
 	public int spectreStage;
 	private const int stages = 5;
 	private bool preparedChange;
@@ -95,5 +98,9 @@ public class TimeSpectre : MonoBehaviour {
 
 
 
+	}
+
+	void EnemyDie(){
+		Destroy (gameObject);
 	}
 }

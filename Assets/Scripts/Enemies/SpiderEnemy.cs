@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SpiderEnemy : MonoBehaviour {
 
+	public ScoreHandler scoreHandler;
+	public int points;
 	public float limitInfA=1f;
 	public float limitSupA=3f;
 	public float velx=10;
@@ -28,5 +30,9 @@ public class SpiderEnemy : MonoBehaviour {
 		x = x + 0.1f;
 		
 		
+	}
+
+	void EnemyDie(){
+		Destroy (gameObject);
 	}
 }
