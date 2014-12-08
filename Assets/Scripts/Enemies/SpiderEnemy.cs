@@ -40,6 +40,7 @@ public class SpiderEnemy : MonoBehaviour {
 
 
 	void EnemyDie(){
+		audio.Play ();
 		GameObject gc=GameObject.FindWithTag("GameController");
 		gc.GetComponent<ScoreHandler>().AddPoints(points);
 		Destroy (gameObject);
