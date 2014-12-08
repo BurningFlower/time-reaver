@@ -116,10 +116,10 @@ public class PlayerController : MonoBehaviour {
     //PLAYER ACTIONS
     //jump with given force (if grounded==true)
    void Jump() {
-        if(grounded) {
+        if(grounded && !jmp) {
+			jmp=true;
             anim.SetTrigger (Animator.StringToHash ("Jump"));
-			Invoke ("AddJumpForce",0.0F);
-
+			rigidbody2D.AddForce (new Vector2 (0, jumpForce), ForceMode2D.Impulse);
 			SetGrounded (false);
         }
     }
@@ -176,14 +176,6 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log ("GameOver");
 
 
-	}
-	void AddJumpForce(){
-		//CancelInvoke ();
-		if(!jmp){
-		jmp=true;
-	//	camCont.SetJumpCamera();
-		rigidbody2D.AddForce (new Vector2 (0, jumpForce), ForceMode2D.Impulse);
-		}
 	}
 	void SetGrounded(bool g){
 		grounded=g;
