@@ -10,6 +10,7 @@ public class TimeSpectre : MonoBehaviour {
 	public float distanceStage0=6f;
 	public float distanceStage3=4f;
 	public GameObject player;
+	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
@@ -86,6 +87,25 @@ public class TimeSpectre : MonoBehaviour {
 	private void ChangeOfStage(){
 		spectreStage = (spectreStage + 1) % stages;
 		preparedChange = !preparedChange;
+
+		switch(spectreStage){
+		case 0:
+			anim.SetTrigger (Animator.StringToHash ("Default"));
+			break;
+		case 1:
+			anim.SetTrigger (Animator.StringToHash ("SpectreBack"));
+			break;
+		case 2:
+			anim.SetTrigger (Animator.StringToHash ("Default"));
+			break;
+		case 3:
+			anim.SetTrigger (Animator.StringToHash ("Default"));
+			break;
+		case 4:
+			anim.SetTrigger (Animator.StringToHash ("Default"));
+			break;
+			
+		}
 
 	}
 }
