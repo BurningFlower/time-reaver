@@ -14,6 +14,7 @@ public class TimeSpectre : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		anim = gameObject.GetComponentInChildren<Animator> ();
 		spectreStage = 0;
 		preparedChange = false;
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -89,24 +90,7 @@ public class TimeSpectre : MonoBehaviour {
 		spectreStage = (spectreStage + 1) % stages;
 		preparedChange = !preparedChange;
 
-		switch(spectreStage){
-		case 0:
-			anim.SetTrigger (Animator.StringToHash ("Default"));
-			break;
-		case 1:
-			anim.SetTrigger (Animator.StringToHash ("SpectreBack"));
-			break;
-		case 2:
-			anim.SetTrigger (Animator.StringToHash ("Default"));
-			break;
-		case 3:
-			anim.SetTrigger (Animator.StringToHash ("Default"));
-			break;
-		case 4:
-			anim.SetTrigger (Animator.StringToHash ("Default"));
-			break;
-			
-		}
+
 
 	}
 }
