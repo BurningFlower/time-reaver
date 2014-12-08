@@ -83,6 +83,13 @@ public class PlayerController : MonoBehaviour {
 			PlayerDies();
 		}
     }
+	void OnTriggerEnter2D(Collider2D collider) {
+		if(collider.gameObject.tag=="Enemy"){
+			if(!attacking) PlayerDies();
+			else collider.gameObject.SendMessage("EnemyDie");
+			
+		}
+	}
     void OnCollisionExit2D(Collision2D collider) {
         if(collider.gameObject.tag=="Floor") {
 			SetGrounded (false);
