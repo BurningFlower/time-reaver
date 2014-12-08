@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour {
         if(collider.gameObject.tag=="Floor") {
 			SetGrounded (false);
 	//		anim.ResetTrigger (Animator.StringToHash ("TouchGround"));
-            if(!jmp) anim.SetTrigger (Animator.StringToHash ("Falling"));
+            if(!jmp && !attacking) anim.SetTrigger (Animator.StringToHash ("Falling"));
         }
 
     }
