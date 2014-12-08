@@ -3,8 +3,8 @@ using System.Collections;
 
 public class ClockHand : MonoBehaviour {
 
-	private float time=60f;
-	private int rotations=10;
+	public float time=60f;
+	private int rotations=60;
 	private float rotationAngle;
 	private float rotationTime;
 	private float rotation;
@@ -15,17 +15,18 @@ public class ClockHand : MonoBehaviour {
 		rotation = 0f;
 		rotationAngle = 360f / rotations;
 		rotationTime = time / rotations;
+		Invoke ("Rotate", rotationTime);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void FixedUpdate () {
+
 	}
 
 	void Rotate(){
 
-		rotation = rotation + rotationAngle;
-		rigidbody2D.MoveRotation (rotationAngle);
+		rotation = (rotation + rotationAngle)%360;
+		rigidbody2D.MoveRotation (rotation);
 		Invoke ("Rotate", rotationTime);
 	}
 }
