@@ -2,14 +2,13 @@
 using System.Collections;
 
 public class SpiderEnemy : MonoBehaviour {
-
-	public ScoreHandler scoreHandler;
 	public int points;
 	public float limitInfA=1f;
 	public float limitSupA=3f;
 	public float velx=100;
 
 	public float Amplitude;
+
 	private float y;
 	private float x;
 	private float posx;
@@ -27,7 +26,6 @@ public class SpiderEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		
 		y = Amplitude * Mathf.Sin ((20 + x)%360);
 		rigidbody2D.MovePosition (new Vector2 (posx, y));
 		x = x + 0.1f;
@@ -36,13 +34,14 @@ public class SpiderEnemy : MonoBehaviour {
 	}
 
 	void PosX(){
-
 		posx = posx - (velx*0.01f);
 		Invoke ("PosX", 0.01f);
 	}
 
 
 	void EnemyDie(){
+		GameObject gc=GameObject.FindWithTag("GameController");
+		gc.GetComponent<ScoreHandler>().AddPoints(points);
 		Destroy (gameObject);
 	}
 }
