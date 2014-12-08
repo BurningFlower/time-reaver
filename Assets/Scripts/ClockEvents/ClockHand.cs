@@ -16,17 +16,17 @@ public class ClockHand : MonoBehaviour {
 		rotationAngle = 360f / rotations;
 		rotationTime = time / rotations;
 		Invoke ("Rotate", rotationTime);
+		Invoke ("Event",time);
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
-
-	}
 
 	void Rotate(){
-
 		rotation = (rotation + rotationAngle)%360;
 		rigidbody2D.MoveRotation (rotation);
 		Invoke ("Rotate", rotationTime);
+	}
+	void Event(){
+		audio.Play ();
+		//events.NewEvent();
 	}
 }
