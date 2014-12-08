@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour {
 	public ParticleEmitter attackParticles;
 	public GameObject mainCamera;
 	public GameController gameController;
+	public ScoreHandler scoreHandler;
 	public GameObject PlayerDeath;
-
+	public int rewardPoints=200;
     private enum ControllerType {Mobile,Computer};
     private ControllerType controllerSelection; //kind of controller
 
@@ -87,8 +88,8 @@ public class PlayerController : MonoBehaviour {
 		if(collider.gameObject.tag=="Enemy"){
 			if(!attacking) PlayerDies();
 			else collider.gameObject.SendMessage("EnemyDie");
-			
 		}
+		else if(collider.gameObject.tag=="Reward") scoreHandler.AddPoints(rewardPoints);
 	}
     void OnCollisionExit2D(Collision2D collider) {
         if(collider.gameObject.tag=="Floor") {
