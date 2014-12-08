@@ -18,6 +18,7 @@ public class MusicController : MonoBehaviour {
 		vol=audio.volume;
 		audio.volume=0F;
 		PlayNext ();
+		DontDestroyOnLoad(gameObject);
 	}
 
 	void Update () {
