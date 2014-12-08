@@ -39,7 +39,7 @@ public class MusicController : MonoBehaviour {
 		audio.clip = Music [current];
 		}
 	void CheckAudio(){
-		if (SavedData.ActiveMusic)
+		if (SavedData.activeMusic)
 			audio.mute = false;
 		else
 			audio.mute = true;

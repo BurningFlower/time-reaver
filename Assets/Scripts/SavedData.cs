@@ -7,23 +7,23 @@ using System.Collections.Generic;
 /** VERSION: 0.1 **/
 
 public static class SavedData{
-	public static bool ActiveMusic;
-	public static bool ActiveSound;
-	public static int HighScore;
+	public static bool activeMusic;
+	public static bool activeSound;
+	public static int highScore;
 
 	static SavedData(){
-			ActiveMusic =ToBool (PlayerPrefs.GetInt ("ActiveMusic", 1));
-			ActiveSound =ToBool(PlayerPrefs.GetInt ("ActiveSound",1));
-			HighScore=PlayerPrefs.GetInt ("HighScore",0);
+			activeMusic =ToBool (PlayerPrefs.GetInt ("ActiveMusic", 1));
+			activeSound =ToBool(PlayerPrefs.GetInt ("ActiveSound",1));
+			highScore=PlayerPrefs.GetInt ("HighScore",0);
 	}
 	public static void SaveOptions(){
-		PlayerPrefs.SetInt ("ActiveMusic",ToInt(ActiveMusic));
-		PlayerPrefs.SetInt ("ActiveSound",ToInt(ActiveSound));
+		PlayerPrefs.SetInt ("ActiveMusic",ToInt(activeMusic));
+		PlayerPrefs.SetInt ("ActiveSound",ToInt(activeSound));
 	}
 	public static void SetHighscore(int Score){
-		if (HighScore < Score) {
-			HighScore=Score;
-			PlayerPrefs.SetInt ("HighScore",HighScore);
+		if (highScore < Score) {
+			highScore=Score;
+			PlayerPrefs.SetInt ("HighScore",highScore);
 				}
 
 		}

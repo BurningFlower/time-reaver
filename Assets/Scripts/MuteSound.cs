@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 /** PROJECT: Time-Reaper **/
@@ -7,7 +7,7 @@ using System.Collections;
 
 public class MuteSound : MonoBehaviour {
 	void Update(){
-		if (SavedData.ActiveSound)
+		if (SavedData.activeSound)
 			audio.mute = false;
 		else
 			audio.mute = true;
