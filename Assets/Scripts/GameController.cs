@@ -4,7 +4,7 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 	public ScoreHandler scoreHandler;
 	public PlatformGenerator platformGenerator;
-
+	public EnemySpawn[] enemySpawns;
 	public void Update(){
 		if (Input.GetKeyDown (KeyCode.Escape)) ReturnMainMenu ();
 
@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
 		scoreHandler.StopCounter();
 		scoreHandler.SaveScore();
 		platformGenerator.generate=false;
+		foreach(EnemySpawn es in enemySpawns) es.generate=false;
 		Invoke("ReturnMainMenu",2F);
 	}
 	public void ReturnMainMenu(){

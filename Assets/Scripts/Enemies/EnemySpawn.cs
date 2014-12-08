@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpiderSpawn : MonoBehaviour {
-
+public class EnemySpawn : MonoBehaviour {
+	public bool generate=true;
 	public GameObject  obj;
 	public float timeSpawn1=2f;
 	public float timeSpawn2=3f;
@@ -10,7 +10,7 @@ public class SpiderSpawn : MonoBehaviour {
 	public float spawnPositionY2=0.3f;
 	// Use this for initialization
 	void Start () {
-		Spawn ();
+		Invoke ("Spawn", Random.Range (timeSpawn1, timeSpawn2));
 	}
 	
 	// Update is called once per frame
@@ -19,9 +19,10 @@ public class SpiderSpawn : MonoBehaviour {
 	}
 
 	void Spawn(){
-		
-		GameObject t=Instantiate (obj , new Vector2(transform.position.x,transform.position.y+Random.Range (spawnPositionY1, spawnPositionY2)), Quaternion.identity) as GameObject;
+		if(generate){
+		GameObject t=Instantiate (obj , new Vector3(transform.position.x,transform.position.y+Random.Range (spawnPositionY1, spawnPositionY2),transform.position.z), Quaternion.identity) as GameObject;
 		t.transform.parent=transform;
+		}
 		Invoke ("Spawn", Random.Range (timeSpawn1, timeSpawn2));
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class TimeAgent : MonoBehaviour {
-	//public float shootDelay;
+	public int points;
 	//public GameObject shoot;
 	// Use this for initialization
 	void Start () {
@@ -11,7 +11,8 @@ public class TimeAgent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void EnemyDie(){
-	//	CancelInvoke();
+		GameObject gc=GameObject.FindWithTag("GameController");
+		gc.GetComponent<ScoreHandler>().AddPoints(points);
 		Destroy (gameObject);
 	}
 /*	void Shoot(){
