@@ -7,9 +7,9 @@ public class SpiderEnemy : MonoBehaviour {
 	public int points;
 	public float limitInfA=1f;
 	public float limitSupA=3f;
-	public float velx=10;
+	public float velx=100;
 
-	public float A;
+	public float Amplitude;
 	private float y;
 	private float x;
 	private float posx;
@@ -18,7 +18,7 @@ public class SpiderEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//rigidbody2D.velocity=(new Vector2 (-velx,0));
-		A = Random.Range (limitInfA, limitSupA);
+		Amplitude = Random.Range (limitInfA, limitSupA);
 		y = rigidbody2D.transform.position.y;
 		x = 0;
 		posx = rigidbody2D.transform.position.x;
@@ -28,7 +28,7 @@ public class SpiderEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		
-		y = A * Mathf.Sin ((20 + x)%360);
+		y = Amplitude * Mathf.Sin ((20 + x)%360);
 		rigidbody2D.MovePosition (new Vector2 (posx, y));
 		x = x + 0.1f;
 		
@@ -38,7 +38,7 @@ public class SpiderEnemy : MonoBehaviour {
 	void PosX(){
 
 		posx = posx - (velx*0.01f);
-		Invoke ("PosX", 0.1f);
+		Invoke ("PosX", 0.01f);
 	}
 
 
