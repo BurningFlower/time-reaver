@@ -89,7 +89,10 @@ public class PlayerController : MonoBehaviour {
 			if(!attacking) PlayerDies();
 			else collider.gameObject.SendMessage("EnemyDie");
 		}
-		else if(collider.gameObject.tag=="Reward") scoreHandler.AddPoints(rewardPoints);
+		else if(collider.gameObject.tag=="Reward"){
+			scoreHandler.AddPoints(rewardPoints);
+			Destroy(collider.gameObject);
+		}
 	}
     void OnCollisionExit2D(Collision2D collider) {
         if(collider.gameObject.tag=="Floor") {

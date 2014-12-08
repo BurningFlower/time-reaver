@@ -50,11 +50,11 @@ public class PlatformGenerator : MonoBehaviour {
 			lastSpawn=Instantiate (enemyPlatform,pos,Quaternion.identity) as GameObject;	
 		}
 		else if(rand<spikerPercentage+enemyPercentage){ //chance of setting a spike
-			lastSpawn=Instantiate (spikePlatform[Random.Range ((int)0,(int)spikePlatform.Length-1)],pos,Quaternion.identity) as GameObject;		
+			lastSpawn=Instantiate (spikePlatform[Random.Range ((int)0,(int)spikePlatform.Length)],pos,Quaternion.identity) as GameObject;		
 		}
 		
 		else{ //platform without spikes
-			lastSpawn=Instantiate (platforms[Random.Range ((int)0,(int)platforms.Length-1)],pos,Quaternion.identity) as GameObject;
+			lastSpawn=Instantiate (platforms[Random.Range ((int)0,(int)platforms.Length)],pos,Quaternion.identity) as GameObject;
 		}
 		lastSpawn.transform.parent=transform;
 		GetNewDistance();
