@@ -6,6 +6,7 @@ using System.Collections;
 /** VERSION: 0.1 **/
 
 public class PlatformGenerator : MonoBehaviour {
+	public bool generate=true;
 	public GameObject[] platforms;
 	public GameObject[] spikePlatform; //all the platforms with spikes
 	public GameObject enemyPlatform;
@@ -28,10 +29,12 @@ public class PlatformGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(generate==true){
 		if (!lastSpawn)
 			Spawn ();
 		else if(Mathf.Abs (lastSpawn.transform.position.x-transform.position.x)>=nextObjectDistance.x){
 			Spawn();
+		}
 		}
 	}
 	

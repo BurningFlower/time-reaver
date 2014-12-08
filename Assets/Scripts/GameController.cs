@@ -2,17 +2,13 @@
 using System.Collections;
 
 public class GameController : MonoBehaviour {
+	public ScoreHandler scoreHandler;
+	public PlatformGenerator platformGenerator;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 	public void GameOver(){
-
+		scoreHandler.StopCounter();
+		scoreHandler.SaveScore();
+		platformGenerator.generate=false;
 	}
 }
