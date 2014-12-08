@@ -7,14 +7,14 @@ public class TimeSpectre : MonoBehaviour {
 	private const int stages = 5;
 	private bool preparedChange;
 	public float force =100f;  
-	public float distanceStage0=6f;
+	public float distanceStage0=5f;
 	public float distanceStage3=4f;
 	public GameObject player;
 	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		anim = gameObject.GetComponentInChildren<Animator> ();
+		anim = GetComponent<Animator> ();
 		spectreStage = 0;
 		preparedChange = false;
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -61,12 +61,14 @@ public class TimeSpectre : MonoBehaviour {
 			rigidbody2D.velocity=(new Vector2 (0,0));
 			preparedChange = !preparedChange;
 			ChangeOfStage ();
+			anim.SetBool("Back",true);
 
 		}
 
 		if (spectreStage == 2 && ((rigidbody2D.transform.position.x - player.transform.position.x) > distanceStage3)) {
 			preparedChange = !preparedChange;
 			ChangeOfStage ();
+			anim.SetBool("Back",false);
 		
 		}
 
@@ -76,9 +78,10 @@ public class TimeSpectre : MonoBehaviour {
 			Invoke("ChangeOfStage",1.5f);
 		}
 
-		if (spectreStage == 4 && ((rigidbody2D.transform.position.x ) > distanceStage0)) {
+		if (spectreStage == 4 && ((rigidbody2D.transform.position.x ) > (player.transform.position.x + distanceStage0))) {
 			
 			preparedChange = !preparedChange;
+			rigidbody2D.velocity=(new Vector2 (0,0));
 			ChangeOfStage ();
 			
 		}
