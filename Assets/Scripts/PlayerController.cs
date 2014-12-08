@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour {
    void Jump() {
         if(grounded) {
             anim.SetTrigger (Animator.StringToHash ("Jump"));
-			Invoke ("AddJumpForce",0.3F);
+			Invoke ("AddJumpForce",0.0F);
 
 			SetGrounded (false);
         }

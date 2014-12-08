@@ -3,17 +3,18 @@ using System.Collections;
 
 public class TimeSpectre : MonoBehaviour {
 
-	private int spectreStage;
+	public int spectreStage;
 	private const int stages = 5;
 	private bool preparedChange;
-	public float force =3f;  
-	public float distanceStage0=4f;
+	public float force =100f;  
+	public float distanceStage0=6f;
 	public float distanceStage3=4f;
 	public GameObject player;
 
 	// Use this for initialization
 	void Start () {
 		spectreStage = 0;
+		preparedChange = false;
 		rigidbody2D.MovePosition ( new Vector2((player.transform.position.x + distanceStage0), player.transform.position.y));
 
 	}
@@ -23,21 +24,21 @@ public class TimeSpectre : MonoBehaviour {
 
 		switch(spectreStage){
 		case 0:
-			rigidbody2D.MovePosition ( new Vector2(player.transform.position.x + distanceStage0,
+			rigidbody2D.MovePosition ( new Vector2(rigidbody2D.transform.position.x,
 			                                       player.transform.position.y));
 			break;
 		case 1:
-			rigidbody2D.AddForce ( new Vector2 (force,0));
+			rigidbody2D.AddForce ( new Vector2 ((-force),0));
 			break;
 		case 2:
-			rigidbody2D.AddForce (new Vector2 (-force , 0));
+			rigidbody2D.AddForce (new Vector2 (force , 0));
 			break;
 		case 3:
 			rigidbody2D.MovePosition ( new Vector2(player.transform.position.x + distanceStage3, player.transform.position.y));
 			rigidbody2D.velocity=(new Vector2 (0,0));
 			break;
 		case 4:
-			rigidbody2D.AddForce ( new Vector2 (-force,0));
+			rigidbody2D.AddForce ( new Vector2 (force,0));
 			break;
 
 		}
@@ -54,7 +55,7 @@ public class TimeSpectre : MonoBehaviour {
 		}
 
 		if (spectreStage == 1 && (rigidbody2D.transform.position.x < player.transform.position.x)) {
-
+			rigidbody2D.velocity=(new Vector2 (0,0));
 			preparedChange = !preparedChange;
 			ChangeOfStage ();
 
@@ -72,7 +73,7 @@ public class TimeSpectre : MonoBehaviour {
 			Invoke("ChangeOfStage",1.5f);
 		}
 
-		if (spectreStage == 4 && ((rigidbody2D.transform.position.x - player.transform.position.x) > distanceStage0)) {
+		if (spectreStage == 4 && ((rigidbody2D.transform.position.x ) > distanceStage0)) {
 			
 			preparedChange = !preparedChange;
 			ChangeOfStage ();
