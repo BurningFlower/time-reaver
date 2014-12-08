@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour {
 
     }
     void FixedUpdate() {
+		transform.position=new Vector3(-5F,transform.position.y,transform.position.z);
 		if(jumpButton) Jump ();
 		if(attackButton) Attack ();
 
@@ -174,7 +175,7 @@ public class PlayerController : MonoBehaviour {
     }
 	void PlayerDies(){
 		Debug.Log ("GameOver");
-
+		Destroy (gameObject);
 
 	}
 	void SetGrounded(bool g){
