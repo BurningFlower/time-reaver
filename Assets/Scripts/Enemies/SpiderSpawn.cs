@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpiderSpaw : MonoBehaviour {
+public class SpiderSpawn : MonoBehaviour {
 
 	public GameObject  obj;
 	public float timeSpawn1=2f;
@@ -20,7 +20,8 @@ public class SpiderSpaw : MonoBehaviour {
 
 	void Spawn(){
 		
-		Instantiate (obj , new Vector2( Random.Range (spawnPositionY1, spawnPositionY2),transform.position.y), Quaternion.identity);
+		GameObject t=Instantiate (obj , new Vector2(transform.position.x,transform.position.y+Random.Range (spawnPositionY1, spawnPositionY2)), Quaternion.identity) as GameObject;
+		t.transform.parent=transform;
 		Invoke ("Spawn", Random.Range (timeSpawn1, timeSpawn2));
 	}
 }
