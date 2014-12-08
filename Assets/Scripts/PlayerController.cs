@@ -10,8 +10,7 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce=1F;
     public int buttonOffset=20; //spcae beetween buttons (in pixels)
     public float attackWaitTime=2F;
-
-    private bool attacking;
+	public ParticleEmitter attackParticles;
 	public GameObject mainCamera;
 
     private enum ControllerType {Mobile,Computer};
@@ -19,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 
     private Animator anim; //animator
 
+	private bool attacking;
     private float attackTimer;
     private int b1,b2; //position of buttons
     private bool grounded; //true if touching floor
@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour {
     void Attack() {
 		attackButton=false;
         if(!attacked && Time.time>attackTimer && !attacking) {
+			attackParticles.emit=true;
 			audio.Play();
             attacked=true;
             attacking=true;
@@ -189,6 +190,7 @@ public class PlayerController : MonoBehaviour {
 		anim.SetBool ("Grounded",g);
 	}
 	void FinishAttack(){
+		attackParticles.emit=false;
 		attacking=false;
 	}
 }
