@@ -9,6 +9,7 @@ public class OptionsMenuController : MonoBehaviour {
 	public Toggle music;
 	public Toggle sound;
 	public GameObject mainMenu;
+	public GameObject soundController;
 	
 	void Start(){
 		music.isOn=SavedData.activeMusic;
@@ -20,11 +21,14 @@ public class OptionsMenuController : MonoBehaviour {
 	}
 	public void SetMusic(){
 		SavedData.activeMusic=music.isOn;
+		soundController.audio.Play();
 	}
 	public void SetSounds(){
 		SavedData.activeSound=sound.isOn;
+		soundController.audio.Play();
 	}
 	public void Return(){
+		soundController.audio.Play();
 		SavedData.SaveOptions();
 		mainMenu.SetActive (true);
 		gameObject.SetActive (false);

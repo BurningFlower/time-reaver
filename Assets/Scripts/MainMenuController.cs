@@ -7,18 +7,21 @@ using System.Collections;
 
 public class MainMenuController : MonoBehaviour {
 	public GameObject optionsMenu;
-	
+	public GameObject soundController;
 	void Update(){
 		if (Input.GetKeyDown (KeyCode.Escape)) ExitGame ();
 
 	}
 	public void StartGame(){
+		soundController.audio.Play();
 		Application.LoadLevel("Main");
 	}
 	public void ExitGame(){
-	Application.Quit();
+		soundController.audio.Play();
+		Application.Quit();
 	}
 	public void OptionsMenu(){
+		soundController.audio.Play();
 		optionsMenu.SetActive (true);
 		gameObject.SetActive (false);
 	}
