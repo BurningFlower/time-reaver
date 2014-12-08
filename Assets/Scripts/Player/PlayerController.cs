@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     public float attackWaitTime=2F;
 	public ParticleEmitter attackParticles;
 	public GameObject mainCamera;
+	public GameController gameController;
 
     private enum ControllerType {Mobile,Computer};
     private ControllerType controllerSelection; //kind of controller
@@ -174,7 +175,7 @@ public class PlayerController : MonoBehaviour {
         return selection;
     }
 	void PlayerDies(){
-		Debug.Log ("GameOver");
+		gameController.GameOver();
 		Destroy (gameObject);
 
 	}

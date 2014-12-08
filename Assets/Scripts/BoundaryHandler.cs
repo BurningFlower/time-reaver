@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 /** PROJECT: Time-Reaper **/
@@ -7,8 +7,9 @@ using System.Collections;
 
 
 public class BoundaryHandler : MonoBehaviour {
-	
+	public GameController gameController;
 	void OnTriggerExit2D(Collider2D col) {
+		if(col.gameObject.tag=="Player") gameController.GameOver();
 		Destroy(col.gameObject);
 	}
 }
