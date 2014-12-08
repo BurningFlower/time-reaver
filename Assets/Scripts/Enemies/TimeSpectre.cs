@@ -17,7 +17,6 @@ public class TimeSpectre : MonoBehaviour {
 		transform.Translate (direction*Time.deltaTime*speed);
 	}
 	void EnemyDie(){
-		audio.Play();
 		GameObject gc=GameObject.FindWithTag("GameController");
 		gc.GetComponent<ScoreHandler>().AddPoints(points);
 		Destroy (gameObject);
