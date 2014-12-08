@@ -11,6 +11,9 @@ public class MusicController : MonoBehaviour {
 	private int current;
 	private float vol;
 	void Start () {
+		if(GameObject.Find("Music") != null) {
+			Destroy (gameObject);    
+		}
 		CheckAudio ();
 		audio.loop = false;
 		current = Random.Range ((int)0,(int)Music.Length-1);
