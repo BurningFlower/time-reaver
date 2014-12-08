@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	public ParticleEmitter attackParticles;
 	public GameObject mainCamera;
 	public GameController gameController;
+	public GameObject PlayerDeath;
 
     private enum ControllerType {Mobile,Computer};
     private ControllerType controllerSelection; //kind of controller
@@ -176,6 +177,7 @@ public class PlayerController : MonoBehaviour {
     }
 	void PlayerDies(){
 		gameController.GameOver();
+		Instantiate (PlayerDeath,transform.position,Quaternion.identity);
 		Destroy (gameObject);
 
 	}
