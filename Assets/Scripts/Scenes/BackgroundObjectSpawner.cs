@@ -21,7 +21,8 @@ public class BackgroundObjectSpawner : MonoBehaviour {
 
 	void Spawn(){
 
-		Instantiate (obj [Random.Range (0, obj.Length)], transform.position, Quaternion.identity);
+		Transform t=Instantiate (obj [Random.Range ((int) 0, (int) obj.Length)], transform.position, Quaternion.identity) as Transform;
+		t.parent=transform;
 		Invoke ("Spawn", Random.Range (timeSpawn1, timeSpawn2));
 	}
 
