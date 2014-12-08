@@ -11,26 +11,36 @@ public class SpiderEnemy : MonoBehaviour {
 
 	public float A;
 	private float y;
-	private float x=0;
+	private float x;
+	private float posx;
 	
 	//y = amplitud * sin((x*valor+grado_inicio)%360)+inicio;
 	// Use this for initialization
 	void Start () {
-		rigidbody2D.velocity=(new Vector2 (velx,0));
+		//rigidbody2D.velocity=(new Vector2 (-velx,0));
 		A = Random.Range (limitInfA, limitSupA);
 		y = rigidbody2D.transform.position.y;
-		
+		x = 0;
+		posx = rigidbody2D.transform.position.x;
+		Invoke ("PosX", 0.1f);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		
 		y = A * Mathf.Sin ((20 + x)%360);
-		rigidbody2D.MovePosition (new Vector2 (0, y));
+		rigidbody2D.MovePosition (new Vector2 (posx, y));
 		x = x + 0.1f;
 		
 		
 	}
+
+	void PosX(){
+
+		posx = posx - (velx*0.01f);
+		Invoke ("PosX", 0.1f);
+	}
+
 
 	void EnemyDie(){
 		Destroy (gameObject);
