@@ -41,6 +41,7 @@ public class PlatformGenerator : MonoBehaviour {
 		Vector2 pos=lastSpawn.transform.position;
 		pos.y+=nextObjectDistance.y;
 		pos.x=transform.position.x;
+		pos.y=Mathf.Clamp (pos.y,transform.position.y-rangeY,transform.position.y+rangeY);
 		
 		if(rand<enemyPercentage){
 			lastSpawn=Instantiate (enemyPlatform,pos,Quaternion.identity) as GameObject;	
@@ -59,7 +60,7 @@ public class PlatformGenerator : MonoBehaviour {
 		float x=Random.Range (minSpawnRange.x,maxSpawnRange.x);
 		float y=Random.Range (minSpawnRange.y,maxSpawnRange.y);
 		if(Random.value<0.5) y=-y;
-		y=Mathf.Clamp (y,transform.position.y-rangeY,transform.position.y+rangeY);
+		//y=Mathf.Clamp (y,transform.position.y-rangeY,transform.position.y+rangeY);
 		nextObjectDistance=new Vector2(x,y);
 	}
 }
