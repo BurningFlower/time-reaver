@@ -16,6 +16,7 @@ public class TimeSpectre : MonoBehaviour {
 	void Start () {
 		spectreStage = 0;
 		preparedChange = false;
+		player = GameObject.FindGameObjectWithTag ("Player");
 		rigidbody2D.MovePosition ( new Vector2((player.transform.position.x + distanceStage0), player.transform.position.y));
 
 	}
@@ -25,7 +26,7 @@ public class TimeSpectre : MonoBehaviour {
 
 		switch(spectreStage){
 		case 0:
-			rigidbody2D.MovePosition ( new Vector2(rigidbody2D.transform.position.x,
+			rigidbody2D.MovePosition ( new Vector2(player.transform.position.x + distanceStage0,
 			                                       player.transform.position.y));
 			break;
 		case 1:
